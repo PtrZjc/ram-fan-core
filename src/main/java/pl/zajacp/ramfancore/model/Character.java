@@ -9,13 +9,14 @@ import java.util.List;
 @Getter
 public class Character {
 
+    private Integer id;
     private String name;
     private Status status;
     private String species;
     private String type;
     private Gender gender;
-//    private Location originLocation;
-//    private Location lastKnownLocation;
+    private Location originLocation;
+    private Location lastKnownLocation;
     private URL image;
     private List<String> episodesUrl;
     private List<Episode> episodes;
