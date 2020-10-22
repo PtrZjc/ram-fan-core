@@ -1,36 +1,35 @@
 package pl.zajacp.ramfancore.model;
 
-import com.rickandmortyapi.Episode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Character {
 
     private Integer id;
     private String name;
-    private Status status;
+    private String status;
     private String species;
     private String type;
-    private Gender gender;
-    private Location originLocation;
-    private Location lastKnownLocation;
+    private String gender;
+    private Location origin;
+    private Location location;
     private URL image;
-    private List<String> episodesUrl;
-    private List<Episode> episodes;
+    private List<String> episode;
+    private URL url;
+    private LocalDateTime created;
 
-    public enum Gender {
-        UNKNOWN,
-        FEMALE,
-        MALE,
-        GENDERLESS
-    }
-
-    public enum Status {
-        UNKNOWN,
-        ALIVE,
-        DEAD
+    private class Origin {
+        private String name;
+        private URL url;
     }
 }
