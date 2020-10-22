@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Character {
+public class CharacterDTO {
 
     private Integer id;
     private String name;
@@ -21,8 +21,8 @@ public class Character {
     private String species;
     private String type;
     private String gender;
-    private Location origin;
-    private Location location;
+    private LocationDTO origin;
+    private LocationDTO locationDTO;
     private URL image;
     private List<String> episode;
     private URL url;
