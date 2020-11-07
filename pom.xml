@@ -94,6 +94,13 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>co.leantechniques</groupId>
+                <artifactId>maven-buildtime-extension</artifactId>
+                <version>2.0.2</version>
+            </extension>
+        </extensions>
     </build>
 
 </project>
