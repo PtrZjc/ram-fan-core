@@ -6,3 +6,5 @@ The backend will use the data captured from free [Rick and Morty API](https://ri
 The backend will have exposed REST API to be used by *Rick and Morty fan tool - page*, which I plan to develop while learning Angular.
 ### Technologies to be used:
 The backend will use Postgres along with JOOQ to handle complex user queries. The schema migration will be handled by liquibase.
+### Set-up
+- Two schemas needs to be created to run the application - `ram_data` and `ram_liquibase`
