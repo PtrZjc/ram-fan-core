@@ -11,7 +11,7 @@ import pl.zajacp.ramfancore.data.fetcher.model.CharacterDto;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.LongStream;
+import java.util.stream.IntStream;
 
 import static org.jooq.codegen.maven.example.tables.Character.CHARACTER;
 
@@ -24,34 +24,39 @@ class DataFetchPrototype {
     private final RestTemplate restTemplate = new RestTemplate();
     private final String LINK = "https://rickandmortyapi.com/api/character";
 
+    private final int pageSize = 20;
+
     @Test
     void prototype() throws JSONException {
 
 //        Map<Integer, List<Integer>> characterToEpisodeRelations = new HashMap<>();
 
-        var nextPage = LINK;
-        var pageNum = 0;
-        var pages = 0;
-        do {
-            String response = restTemplate.getForObject(nextPage, String.class);
+        Set<Integer> existingIds = jooq
+                .select(CHARACTER.ID).from(CHARACTER)
+                .fetch().stream()
+                .map(record -> (Integer) record.get(0))
+                .collect(Collectors.toSet());
 
-            nextPage = JsonPath.parse(response).read("$.info.next");
-            pages = JsonPath.parse(response).read("$.info.pages");
+        Integer objectCount = JsonPath.parse(restTemplate.getForObject(LINK, String.class)).read("$.info.count");
 
-            List<Integer> idListAtPage = JsonPath.parse(response).read("$.results..id");
-            List<CharacterDto> characters = new ArrayList<>();
+        Map<Integer, List<Integer>> missingRecordsByPageNumber = IntStream.rangeClosed(1, objectCount).boxed()
+                .filter(id -> !existingIds.contains(id))
+                .collect(Collectors.groupingBy(id -> (id - 1) / pageSize + 1,
+                        Collectors.mapping(id -> id % pageSize - 1, Collectors.toList())));
 
-            LongStream.range(0, idListAtPage.size()).boxed()
-                    .forEach(i -> characters.add(getCharacterDto(i, response)));
+        missingRecordsByPageNumber.forEach(this::fetchAndSaveInDb);
+    }
 
-            insertCharactersIntoDb(characters);
+    private void fetchAndSaveInDb(Integer pageNumber, List<Integer> recordIndex) {
+        String response = restTemplate.getForObject(LINK + "/?page=" +
+                pageNumber.toString(), String.class);
 
-            //TODO - relations
-            //characterToEpisodeRelations.put(character.getId(), character.getEpisodeIds());
+        List<CharacterDto> characters = new ArrayList<>();
+        recordIndex.forEach(i -> characters.add(getCharacterDto(i, response)));
+        insertCharactersIntoDb(characters);
 
-            System.out.println(characters);
-            pageNum++;
-        } while (nextPage != null);
+        //TODO - relations
+        //characterToEpisodeRelations.put(character.getId(), character.getEpisodeIds());
     }
 
     private Optional<Integer> getIdFromUrl(String url) {
@@ -62,7 +67,7 @@ class DataFetchPrototype {
         return Optional.empty();
     }
 
-    private CharacterDto getCharacterDto(Long i, String response) {
+    private CharacterDto getCharacterDto(Integer i, String response) {
         return CharacterDto.builder()
                 .id((Integer) getResultObjectValue(response, i, "id"))
                 .name((String) getResultObjectValue(response, i, "name"))
@@ -82,7 +87,7 @@ class DataFetchPrototype {
                 .build();
     }
 
-    private Object getResultObjectValue(String json, Long index, String paramName) {
+    private Object getResultObjectValue(String json, Integer index, String paramName) {
         return JsonPath.parse(json).read(new StringBuilder()
                 .append("$.results.[")
                 .append(index.toString())
