@@ -44,7 +44,7 @@ class DataFetchPrototype {
             LongStream.range(0, idListAtPage.size()).boxed()
                     .forEach(i -> characters.add(getCharacterDto(i, response)));
 
-            characters.forEach(this::insertCharactersIntoDb);
+            insertCharactersIntoDb(characters);
 
             //TODO - relations
             //characterToEpisodeRelations.put(character.getId(), character.getEpisodeIds());
@@ -91,17 +91,22 @@ class DataFetchPrototype {
                 .toString());
     }
 
-    private void insertCharactersIntoDb(CharacterDto characterDto) {
-        jooq.insertInto(CHARACTER)
-                .set(CHARACTER.ID, characterDto.getId())
-                .set(CHARACTER.NAME, characterDto.getName())
-                .set(CHARACTER.STATUS, characterDto.getStatus())
-                .set(CHARACTER.SPECIES, characterDto.getSpecies())
-                .set(CHARACTER.TYPE, characterDto.getType())
-                .set(CHARACTER.GENDER, characterDto.getGender())
-                .set(CHARACTER.ORIGIN_ID, characterDto.getOriginId().orElseGet(() -> null))
-                .set(CHARACTER.LOCATION_ID, characterDto.getLocationId().orElseGet(() -> null))
-                .set(CHARACTER.IMAGE, characterDto.getImageBytes())
-                .execute();
+    private void insertCharactersIntoDb(List<CharacterDto> characters) {
+        var multipleInsert = jooq.insertInto(CHARACTER, CHARACTER.ID, CHARACTER.NAME, CHARACTER.STATUS, CHARACTER.SPECIES,
+                CHARACTER.TYPE, CHARACTER.GENDER, CHARACTER.ORIGIN_ID, CHARACTER.LOCATION_ID, CHARACTER.IMAGE);
+        for (CharacterDto character : characters) {
+            multipleInsert = multipleInsert.values(
+                    character.getId(),
+                    character.getName(),
+                    character.getStatus(),
+                    character.getSpecies(),
+                    character.getType(),
+                    character.getGender(),
+                    character.getOriginId().orElseGet(() -> null),
+                    character.getLocationId().orElseGet(() -> null),
+                    character.getImageBytes()
+            );
+        }
+        multipleInsert.execute();
     }
 }
