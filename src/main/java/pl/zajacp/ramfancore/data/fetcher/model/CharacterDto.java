@@ -11,14 +11,14 @@ import java.util.Optional;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CharacterDto {
-    private Integer id;
+    private Long id;
     private String name;
     private String status;
     private String species;
     private String type;
     private String gender;
-    private Optional<Integer> originId;
-    private Optional<Integer> locationId;
-    private List<Integer> episodeIds;
+    private Optional<Long> originId;
+    private Optional<Long> locationId;
+    private List<Long> episodeIds;
     private byte[] imageBytes;
 }

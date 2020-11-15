@@ -10,9 +10,9 @@ import pl.zajacp.ramfancore.data.fetcher.model.CharacterDto;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
-import static org.jooq.codegen.maven.example.tables.Character.CHARACTER;
+import static pl.zajacp.ramfancore.model.tables.Character.CHARACTER;
 
 @Service
 @AllArgsConstructor
@@ -28,15 +28,15 @@ class CharacterFetcher {
 
     void fetchDataAndSaveInDb() {
 
-        Set<Integer> existingIds = jooq
+        Set<Long> existingIds = jooq
                 .select(CHARACTER.ID).from(CHARACTER)
                 .fetch().stream()
-                .map(record -> (Integer) record.get(0))
+                .map(record -> (Long) record.get(0))
                 .collect(Collectors.toSet());
 
-        Integer objectCount = JsonPath.parse(restTemplate.getForObject(LINK, String.class)).read("$.info.count");
+        Long objectCount = JsonPath.parse(restTemplate.getForObject(LINK, String.class)).read("$.info.count");
 
-        Map<Integer, List<Integer>> missingRecordsByPageNumber = IntStream.rangeClosed(1, objectCount).boxed()
+        Map<Long, List<Long>> missingRecordsByPageNumber = LongStream.rangeClosed(1, objectCount).boxed()
                 .filter(id -> !existingIds.contains(id))
                 .collect(Collectors.groupingBy(id -> (id - 1) / pageSize + 1,
                         Collectors.mapping(id -> id % pageSize - 1, Collectors.toList())));
@@ -44,7 +44,7 @@ class CharacterFetcher {
         missingRecordsByPageNumber.forEach(this::fetchAndSaveInDb);
     }
 
-    private void fetchAndSaveInDb(Integer pageNumber, List<Integer> recordIndex) {
+    private void fetchAndSaveInDb(Long pageNumber, List<Long> recordIndex) {
         String response = restTemplate.getForObject(LINK + "/?page=" +
                 pageNumber.toString(), String.class);
 
@@ -56,17 +56,17 @@ class CharacterFetcher {
         //characterToEpisodeRelations.put(character.getId(), character.getEpisodeIds());
     }
 
-    private Optional<Integer> getIdFromUrl(String url) {
+    private Optional<Long> getIdFromUrl(String url) {
         if (!"".equals(url)) {
             String[] segments = url.split("/");
-            return Optional.of(Integer.parseInt(segments[segments.length - 1]));
+            return Optional.of(Long.valueOf(segments[segments.length - 1]));
         }
         return Optional.empty();
     }
 
-    private CharacterDto getCharacterDto(Integer i, String response) {
+    private CharacterDto getCharacterDto(Long i, String response) {
         return CharacterDto.builder()
-                .id((Integer) getResultObjectValue(response, i, "id"))
+                .id((Long) getResultObjectValue(response, i, "id"))
                 .name((String) getResultObjectValue(response, i, "name"))
                 .status((String) getResultObjectValue(response, i, "status"))
                 .species((String) getResultObjectValue(response, i, "species"))
@@ -84,7 +84,7 @@ class CharacterFetcher {
                 .build();
     }
 
-    private Object getResultObjectValue(String json, Integer index, String paramName) {
+    private Object getResultObjectValue(String json, Long index, String paramName) {
         return JsonPath.parse(json).read(new StringBuilder()
                 .append("$.results.[")
                 .append(index.toString())
