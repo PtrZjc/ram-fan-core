@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS ram_data;
+
 DROP TABLE IF EXISTS ram_data.character CASCADE;
 CREATE TABLE ram_data.character (
     id                  BIGINT         PRIMARY KEY,
