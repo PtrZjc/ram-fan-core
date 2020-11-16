@@ -1,6 +1,12 @@
 package pl.zajacp.ramfancore.data.fetcher;
 
 import com.jayway.jsonpath.JsonPath;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.LongStream;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
@@ -8,10 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.zajacp.ramfancore.data.fetcher.model.CharacterDto;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.LongStream;
-
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 import static pl.zajacp.ramfancore.model.tables.Character.CHARACTER;
 
 @Service
@@ -20,11 +26,10 @@ import static pl.zajacp.ramfancore.model.tables.Character.CHARACTER;
 class CharacterFetcher {
 
     private final DSLContext jooq;
-
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String LINK = "https://rickandmortyapi.com/api/character";
 
-    private final int pageSize = 20;
+    private final String LINK = "https://rickandmortyapi.com/api/character";
+    private final int PAGE_SIZE = 20;
 
     void fetchDataAndSaveInDb() {
 
@@ -32,14 +37,13 @@ class CharacterFetcher {
                 .select(CHARACTER.ID).from(CHARACTER)
                 .fetch().stream()
                 .map(record -> (Long) record.get(0))
-                .collect(Collectors.toSet());
+                .collect(toSet());
 
         Long objectCount = JsonPath.parse(restTemplate.getForObject(LINK, String.class)).read("$.info.count");
 
         Map<Long, List<Long>> missingRecordsByPageNumber = LongStream.rangeClosed(1, objectCount).boxed()
                 .filter(id -> !existingIds.contains(id))
-                .collect(Collectors.groupingBy(id -> (id - 1) / pageSize + 1,
-                        Collectors.mapping(id -> id % pageSize - 1, Collectors.toList())));
+                .collect(groupingBy(id -> (id - 1) / PAGE_SIZE + 1, mapping(id -> id % PAGE_SIZE - 1, toList())));
 
         missingRecordsByPageNumber.forEach(this::fetchAndSaveInDb);
     }
@@ -79,7 +83,7 @@ class CharacterFetcher {
                         .map(this::getIdFromUrl)
                         .filter(Optional::isPresent)
                         .map(Optional::get)
-                        .collect(Collectors.toList()))
+                        .collect(toList()))
                 .imageBytes(restTemplate.getForObject((String) getResultObjectValue(response, i, "image"), byte[].class))
                 .build();
     }
