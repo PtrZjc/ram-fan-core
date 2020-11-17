@@ -11,9 +11,7 @@ public class TestContainer {
 
     public static PostgreSQLContainer getInstance() {
         if (container == null) {
-            container = new PostgreSQLContainer("postgres:9.6")
-                    .withPassword("postgres")
-                    .withUsername("postgres");
+            container = new PostgreSQLContainer("postgres:9.6");
             container.start();
         }
         return container;
