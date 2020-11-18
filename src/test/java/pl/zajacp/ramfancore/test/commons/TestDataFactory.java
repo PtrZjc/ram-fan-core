@@ -8,23 +8,23 @@ import lombok.Getter;
 
 import static java.nio.file.Files.readAllLines;
 
-public class JsonTestData {
+public class TestDataFactory {
 
     @Getter
     @AllArgsConstructor
-    public enum JsonResponse {
+    public enum DataFile {
         API_CHARACTER_PAGE_1("target/test-classes/data/ext/character-page1.json"),
         API_CHARACTER_PAGE_2("target/test-classes/data/ext/character-page2.json"),
         API_EPISODE_PAGE_1("target/test-classes/data/ext/episode-page1.json"),
         API_EPISODE_PAGE_2("target/test-classes/data/ext/episode-page2.json"),
         API_LOCATION_PAGE_1("target/test-classes/data/ext/location-page1.json"),
-        API_LOCATION_PAGE_2("target/test-classes/data/ext/location-page2.json");
-
+        API_LOCATION_PAGE_2("target/test-classes/data/ext/location-page2.json"),
+        SQL_INSERT_30_CHARACTERS("target/test-classes/data/sql/insert-30-characters.sql");
         private String filePath;
     }
 
-    public static String getJsonResponse(JsonResponse jsonResponse) {
-        return contentOfFile(jsonResponse.getFilePath());
+    public static String getContent(DataFile dataFile) {
+        return contentOfFile(dataFile.getFilePath());
     }
 
     private static String contentOfFile(String path) {
