@@ -26,7 +26,7 @@ import static pl.zajacp.ramfancore.model.tables.Character.CHARACTER;
 class CharacterFetcher {
 
     private final DSLContext jooq;
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
     private final String LINK = "https://rickandmortyapi.com/api/character";
     private final int PAGE_SIZE = 20;
