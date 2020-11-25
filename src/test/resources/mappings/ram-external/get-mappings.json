@@ -1,0 +1,46 @@
+{
+  "mappings": [
+    {
+      "name": "Get 1st character page",
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/character/(\\?page=1)?"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/character-page1.json"
+      }
+    },
+    {
+      "name": "Get 2st character page",
+      "request": {
+        "method": "GET",
+        "url": "/api/character/?page=2"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/character-page2.json"
+      }
+    },
+    {
+      "name": "Get character image",
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/api/character/avatar/([1-2][0-9]|30).jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/{{request.pathSegments.[2]}}"
+      }
+    }
+  ]
+}

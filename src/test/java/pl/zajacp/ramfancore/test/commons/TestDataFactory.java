@@ -22,14 +22,14 @@ public class TestDataFactory {
     @Getter
     @AllArgsConstructor
     public enum DataPath {
-        API_CHARACTER_PAGE_1("target/test-classes/data/ext/character-page1.json"),
-        API_CHARACTER_PAGE_2("target/test-classes/data/ext/character-page2.json"),
-        API_EPISODE_PAGE_1("target/test-classes/data/ext/episode-page1.json"),
-        API_EPISODE_PAGE_2("target/test-classes/data/ext/episode-page2.json"),
-        API_LOCATION_PAGE_1("target/test-classes/data/ext/location-page1.json"),
-        API_LOCATION_PAGE_2("target/test-classes/data/ext/location-page2.json"),
-        SQL_INSERT_30_CHARACTERS("target/test-classes/data/sql/insert-30-characters.sql"),
-        JPG_CHARACTER_IMAGE_FOLDER("target/test-classes/data/image/character/");
+        API_CHARACTER_PAGE_1("target/test-classes/__files/ram-external/character-page1.json"),
+        API_CHARACTER_PAGE_2("target/test-classes/__files/ram-external/character-page2.json"),
+        API_EPISODE_PAGE_1("target/test-classes/__files/ram-external/episode-page1.json"),
+        API_EPISODE_PAGE_2("target/test-classes/__files/ram-external/episode-page2.json"),
+        API_LOCATION_PAGE_1("target/test-classes/__files/ram-external/location-page1.json"),
+        API_LOCATION_PAGE_2("target/test-classes/__files/ram-external/location-page2.json"),
+        SQL_INSERT_30_CHARACTERS("target/test-classes/sql/insert-30-characters.sql"),
+        JPG_CHARACTER_IMAGE_FOLDER("target/test-classes/__files/ram-external/image/character/");
 
         private String filePath;
     }
