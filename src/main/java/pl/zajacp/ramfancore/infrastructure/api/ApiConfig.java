@@ -8,14 +8,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 @Configuration
 public class ApiConfig {
 
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder, RamExternalPath ramExternalPath) {
-        return builder
-                .rootUri(ramExternalPath.rootUrl)
+    public RestTemplate restTemplate(RamExternalPath ramExternalPath) {
+        return new RestTemplateBuilder()
+                .uriTemplateHandler(new DefaultUriBuilderFactory(ramExternalPath.rootUrl))
                 .build();
     }
 
