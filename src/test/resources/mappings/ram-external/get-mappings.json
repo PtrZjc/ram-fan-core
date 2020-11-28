@@ -4,7 +4,7 @@
       "name": "Get 1st character page",
       "request": {
         "method": "GET",
-        "urlPattern": "/api/character/(\\?page=1)?"
+        "urlPattern": "/api/character(/|/\\?page=1)?"
       },
       "response": {
         "status": 200,
@@ -32,14 +32,14 @@
       "name": "Get character image",
       "request": {
         "method": "GET",
-        "urlPathPattern": "/api/character/avatar/([1-2][0-9]|30).jpg"
+        "urlPattern": "/api/character/avatar/([1-9]|[1-2][0-9]|30).jpg"
       },
       "response": {
         "status": 200,
         "headers": {
           "Content-Type": "application/json"
         },
-        "bodyFileName": "ram-external/image/character/{{request.pathSegments.[2]}}"
+        "bodyFileName": "ram-external/image/character/{{request.pathSegments.[3]}}"
       }
     }
   ]
