@@ -1,37 +1,44 @@
-CREATE TABLE IF NOT EXISTS public.character (
-    id                  SMALLINT        PRIMARY KEY,
+CREATE SCHEMA IF NOT EXISTS ram_data;
+
+DROP TABLE IF EXISTS ram_data.character CASCADE;
+CREATE TABLE ram_data.character (
+    id                  BIGINT         PRIMARY KEY,
     name                TEXT,
     status              TEXT,
     species             TEXT,
     type                TEXT,
     gender              TEXT,
-    origin_id           SMALLINT,
-    location_id         SMALLINT,
+    origin_id           BIGINT,
+    location_id         BIGINT,
     image               BYTEA
 );
 
-CREATE TABLE IF NOT EXISTS public.episode (
-    id                  SMALLINT PRIMARY KEY,
+DROP TABLE IF EXISTS ram_data.episode CASCADE;
+CREATE TABLE ram_data.episode (
+    id                  BIGINT         PRIMARY KEY,
     name                TEXT,
     air_date            TEXT,
     episode             TEXT
 );
 
-CREATE TABLE IF NOT EXISTS public.location (
-    id                  SMALLINT PRIMARY KEY,
+DROP TABLE IF EXISTS ram_data.location CASCADE;
+CREATE TABLE ram_data.location (
+    id                  BIGINT         PRIMARY KEY,
     name                TEXT,
     type                TEXT,
     dimension           TEXT
 );
 
-CREATE TABLE IF NOT EXISTS public.character_episode (
-    character_id        SMALLINT        NOT NULL        REFERENCES public.character,
-    episode_id          SMALLINT        NOT NULL        REFERENCES public.episode,
+DROP TABLE IF EXISTS ram_data.character_episode CASCADE;
+CREATE TABLE ram_data.character_episode (
+    character_id        BIGINT        NOT NULL        REFERENCES ram_data.character,
+    episode_id          BIGINT        NOT NULL        REFERENCES ram_data.episode,
     PRIMARY KEY (character_id, episode_id)
 );
 
-CREATE TABLE IF NOT EXISTS public.character_location (
-    character_id        SMALLINT        NOT NULL        REFERENCES public.character,
-    location_id         SMALLINT        NOT NULL        REFERENCES public.location,
+DROP TABLE IF EXISTS ram_data.character_location CASCADE;
+CREATE TABLE ram_data.character_location (
+    character_id        BIGINT        NOT NULL        REFERENCES ram_data.character,
+    location_id         BIGINT        NOT NULL        REFERENCES ram_data.location,
     PRIMARY KEY (character_id, location_id)
 );

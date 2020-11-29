@@ -1,0 +1,32 @@
+{
+  "mappings": [
+    {
+      "name": "Get 1st character page",
+      "request": {
+        "method": "GET",
+        "urlPattern": "/api/character(/|/\\?page=1)?"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/character-page1.json"
+      }
+    },
+    {
+      "name": "Get 2st character page",
+      "request": {
+        "method": "GET",
+        "url": "/api/character/?page=2"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/character-page2.json"
+      }
+    }
+  ]
+}

@@ -23,6 +23,8 @@ public class ChangeLogConfiguration {
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setChangeLog(liquibaseProperties.changeLog);
         liquibase.setDataSource(dataSource);
+        liquibase.setDefaultSchema(liquibaseProperties.defaultDataSchema);
+        liquibase.setLiquibaseSchema(liquibaseProperties.defaultLiquibaseSchema);
         try (Connection connection = dataSource.getConnection()) {
             liquibase.setChangeLogParameters(Collections.singletonMap("user_name", connection.getMetaData().getUserName()));
         } catch (SQLException ex) {
@@ -37,5 +39,7 @@ public class ChangeLogConfiguration {
     @Setter
     private class LiquibaseProperties {
         private String changeLog;
+        private String defaultDataSchema;
+        private String defaultLiquibaseSchema;
     }
 }
