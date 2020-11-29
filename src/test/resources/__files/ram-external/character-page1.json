@@ -21,7 +21,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/1.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/1",
         "https://rickandmortyapi.com/api/episode/2",
@@ -83,7 +83,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/2.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/1",
         "https://rickandmortyapi.com/api/episode/2",
@@ -145,7 +145,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/3.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -199,7 +199,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/4.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/4.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -253,7 +253,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/5.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/6",
         "https://rickandmortyapi.com/api/episode/7",
@@ -303,7 +303,7 @@
         "name": "Abadango",
         "url": "https://rickandmortyapi.com/api/location/2"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/6.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/6.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/27"
       ],
@@ -325,7 +325,7 @@
         "name": "Testicle Monster Dimension",
         "url": "https://rickandmortyapi.com/api/location/21"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/7.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/7.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/11"
@@ -348,7 +348,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/8.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/8.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/28"
       ],
@@ -370,7 +370,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/9.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/9.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/24"
       ],
@@ -392,7 +392,7 @@
         "name": "Worldender's lair",
         "url": "https://rickandmortyapi.com/api/location/4"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/10.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/10.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/25"
       ],
@@ -414,7 +414,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/11.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/11.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/12"
       ],
@@ -436,7 +436,7 @@
         "name": "Anatomy Park",
         "url": "https://rickandmortyapi.com/api/location/5"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/12.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/3"
       ],
@@ -458,7 +458,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/13.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/13.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/31"
       ],
@@ -480,7 +480,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/14.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/14.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
@@ -502,7 +502,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/15.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/15.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
@@ -524,7 +524,7 @@
         "name": "Earth (Replacement Dimension)",
         "url": "https://rickandmortyapi.com/api/location/20"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/16.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/16.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/15"
       ],
@@ -546,7 +546,7 @@
         "name": "Anatomy Park",
         "url": "https://rickandmortyapi.com/api/location/5"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/17.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/17.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/3"
       ],
@@ -568,7 +568,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/18.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/18.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/28"
@@ -591,7 +591,7 @@
         "name": "unknown",
         "url": ""
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/19.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/19.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10"
       ],
@@ -613,7 +613,7 @@
         "name": "Interdimensional Cable",
         "url": "https://rickandmortyapi.com/api/location/6"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/20.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/20.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/8"
       ],

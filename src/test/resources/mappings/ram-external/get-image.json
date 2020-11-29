@@ -1,0 +1,424 @@
+{
+  "mappings": [
+    {
+      "name": "Get character 1 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/1.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/1.jpg"
+      }
+    },
+    {
+      "name": "Get character 2 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/2.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/2.jpg"
+      }
+    },
+    {
+      "name": "Get character 3 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/3.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/3.jpg"
+      }
+    },
+    {
+      "name": "Get character 4 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/4.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/4.jpg"
+      }
+    },
+    {
+      "name": "Get character 5 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/5.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/5.jpg"
+      }
+    },
+    {
+      "name": "Get character 6 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/6.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/6.jpg"
+      }
+    },
+    {
+      "name": "Get character 7 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/7.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/7.jpg"
+      }
+    },
+    {
+      "name": "Get character 8 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/8.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/8.jpg"
+      }
+    },
+    {
+      "name": "Get character 9 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/9.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/9.jpg"
+      }
+    },
+    {
+      "name": "Get character 10 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/10.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/10.jpg"
+      }
+    },
+    {
+      "name": "Get character 11 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/11.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/11.jpg"
+      }
+    },
+    {
+      "name": "Get character 12 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/12.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/12.jpg"
+      }
+    },
+    {
+      "name": "Get character 13 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/13.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/13.jpg"
+      }
+    },
+    {
+      "name": "Get character 14 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/14.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/14.jpg"
+      }
+    },
+    {
+      "name": "Get character 15 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/15.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/15.jpg"
+      }
+    },
+    {
+      "name": "Get character 16 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/16.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/16.jpg"
+      }
+    },
+    {
+      "name": "Get character 17 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/17.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/17.jpg"
+      }
+    },
+    {
+      "name": "Get character 18 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/18.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/18.jpg"
+      }
+    },
+    {
+      "name": "Get character 19 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/19.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/19.jpg"
+      }
+    },
+    {
+      "name": "Get character 20 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/20.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/20.jpg"
+      }
+    },
+    {
+      "name": "Get character 21 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/21.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/21.jpg"
+      }
+    },
+    {
+      "name": "Get character 22 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/22.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/22.jpg"
+      }
+    },
+    {
+      "name": "Get character 23 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/23.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/23.jpg"
+      }
+    },
+    {
+      "name": "Get character 24 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/24.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/24.jpg"
+      }
+    },
+    {
+      "name": "Get character 25 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/25.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/25.jpg"
+      }
+    },
+    {
+      "name": "Get character 26 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/26.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/26.jpg"
+      }
+    },
+    {
+      "name": "Get character 27 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/27.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/27.jpg"
+      }
+    },
+    {
+      "name": "Get character 28 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/28.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/28.jpg"
+      }
+    },
+    {
+      "name": "Get character 29 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/29.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/29.jpg"
+      }
+    },
+    {
+      "name": "Get character 30 image",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/character/avatar/30.jpg"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "bodyFileName": "ram-external/image/character/30.jpg"
+      }
+    }
+  ]
+}

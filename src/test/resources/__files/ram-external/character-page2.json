@@ -21,7 +21,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/21.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/21.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/22"
@@ -44,7 +44,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/22.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/22.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/22",
@@ -68,7 +68,7 @@
         "name": "Immortality Field Resort",
         "url": "https://rickandmortyapi.com/api/location/7"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/23.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/23.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/13",
         "https://rickandmortyapi.com/api/episode/19",
@@ -94,7 +94,7 @@
         "name": "Signus 5 Expanse",
         "url": "https://rickandmortyapi.com/api/location/22"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/24.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/24.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/16"
       ],
@@ -116,7 +116,7 @@
         "name": "Post-Apocalyptic Earth",
         "url": "https://rickandmortyapi.com/api/location/8"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/25.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/25.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/23"
       ],
@@ -138,7 +138,7 @@
         "name": "Purge Planet",
         "url": "https://rickandmortyapi.com/api/location/9"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/26.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/26.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/20"
       ],
@@ -160,7 +160,7 @@
         "name": "Citadel of Ricks",
         "url": "https://rickandmortyapi.com/api/location/3"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/27.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/27.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/10",
         "https://rickandmortyapi.com/api/episode/28"
@@ -183,7 +183,7 @@
         "name": "Interdimensional Cable",
         "url": "https://rickandmortyapi.com/api/location/6"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/28.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/28.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/8",
         "https://rickandmortyapi.com/api/episode/13",
@@ -207,7 +207,7 @@
         "name": "Interdimensional Cable",
         "url": "https://rickandmortyapi.com/api/location/6"
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/29.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/29.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/8"
       ],
@@ -229,7 +229,7 @@
         "name": "unknown",
         "url": ""
       },
-      "image": "https://rickandmortyapi.com/api/character/avatar/30.jpeg",
+      "image": "http://localhost:9998/api/character/avatar/30.jpg",
       "episode": [
         "https://rickandmortyapi.com/api/episode/31"
       ],
