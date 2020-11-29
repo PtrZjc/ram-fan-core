@@ -62,26 +62,23 @@ class CharacterFetcherSpec extends Specification {
         when: "A character fetch is performed"
         characterFetcher.fetchDataAndSaveInDb()
 
-        then: "All 30 records are saved in database"
-        jooq.select().from(CHARACTER).fetch().size() == 30
-
-        then: "Character ids are complete"
+        then: "All characters are saved in database"
         jooq.select(CHARACTER.ID)
                 .from(CHARACTER)
                 .orderBy(CHARACTER.ID.asc())
                 .fetch("id") == 1L..30L
 
-        then: "First character is Rick"
+        and: "First character is Rick"
         jooq.selectFrom(CHARACTER)
                 .where(CHARACTER.ID.eq(1L))
                 .fetchAny("name") == "Rick Sanchez"
 
-        then: "Second character is Morty"
+        and: "Second character is Morty"
         jooq.selectFrom(CHARACTER)
                 .where(CHARACTER.ID.eq(2L))
                 .fetchAny("name") == "Morty Smith"
 
-        then: "Each character has proper avatar image saved"
+        and: "Each character has proper avatar image saved"
         def avatarFileHeaders = jooq.select(CHARACTER.IMAGE)
                 .from(CHARACTER)
                 .fetch("image")
@@ -90,7 +87,39 @@ class CharacterFetcherSpec extends Specification {
         avatarFileHeaders.every { it.contains JPG_HEADER_IDENTIFIER } //jpg unique identifier in file header
     }
 
-    def getFileHeaderText(byte[] bytes) {
+    def "Character fetch when database is already filled"() {
+        given: "All characters are initially present in database"
+        testRepository.insertCharacters(1L, 30L)
+        def initialRecords = jooq.select().from(CHARACTER).fetch().collect()
+
+        when: "A character fetch is performed"
+        characterFetcher.fetchDataAndSaveInDb()
+
+        then: "No record is changed"
+        initialRecords == jooq.select().from(CHARACTER).fetch().collect()
+    }
+
+    def "Character fetch when some characters are already present"() {
+        expect: "A partially filled database"
+        testRepository.insertCharacters(10L, 25L)
+        def initialRecords = jooq.selectFrom(CHARACTER).orderBy(CHARACTER.ID.asc()).fetch().collect()
+
+        when: "A character fetch is performed"
+        characterFetcher.fetchDataAndSaveInDb()
+
+        then: "All characters are saved in database"
+        jooq.select(CHARACTER.ID)
+                .from(CHARACTER)
+                .orderBy(CHARACTER.ID.asc())
+                .fetch("id") == 1L..30L
+
+        and: "No update was made on records present initially"
+        initialRecords == jooq.selectFrom(CHARACTER)
+                .where(CHARACTER.ID.between(10L, 25L))
+                .orderBy(CHARACTER.ID.asc()).fetch().collect()
+    }
+
+    private static def getFileHeaderText(byte[] bytes) {
         return new String(bytes, 0, 20, StandardCharsets.UTF_8)
     }
 }
