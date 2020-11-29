@@ -84,7 +84,7 @@ class CharacterFetcherSpec extends Specification {
                 .fetch("image")
                 .collect { avatarImage -> getFileHeaderText(avatarImage) }
 
-        avatarFileHeaders.every { it.contains JPG_HEADER_IDENTIFIER } //jpg unique identifier in file header
+        avatarFileHeaders.every { it.contains JPG_HEADER_IDENTIFIER }
     }
 
     def "Character fetch when database is already filled"() {
