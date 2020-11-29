@@ -28,17 +28,23 @@ public class TestDataRepository {
         TABLES.forEach(table -> jooq.truncate(table).cascade().execute());
     }
 
-    public void insert30characters() {
+    public void insertCharacters(long lowerIdBound, long upperIdBoundIncl) {
         jooq.execute(getContent(SQL_INSERT_30_CHARACTERS));
         jooq.batch(
-                getCharacterImagesAsBytes(1, 30)
+                getCharacterImagesAsBytes(lowerIdBound, upperIdBoundIncl)
                         .stream()
                         .map(this::prepareSingleImageUpdate)
                         .collect(toList()))
                 .execute();
+        if (lowerIdBound > 1) {
+            jooq.delete(CHARACTER).where(CHARACTER.ID.between(1L, lowerIdBound - 1)).execute();
+        }
+        if (upperIdBoundIncl < 30) {
+            jooq.delete(CHARACTER).where(CHARACTER.ID.between(upperIdBoundIncl + 1, 30L)).execute();
+        }
     }
 
-    private UpdateConditionStep<CharacterRecord> prepareSingleImageUpdate(Tuple2<Integer, byte[]> characterImage) {
+    private UpdateConditionStep<CharacterRecord> prepareSingleImageUpdate(Tuple2<Long, byte[]> characterImage) {
         return jooq.update(CHARACTER)
                 .set(CHARACTER.IMAGE, characterImage._2)
                 .where(CHARACTER.ID.eq(valueOf(characterImage._1)));

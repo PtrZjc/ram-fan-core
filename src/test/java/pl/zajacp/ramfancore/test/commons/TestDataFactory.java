@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -43,17 +44,17 @@ public class TestDataFactory {
                 .getOrElseThrow((Supplier<RuntimeException>) RuntimeException::new);
     }
 
-    public static List<Tuple2<Integer, byte[]>> getCharacterImagesAsBytes(int lowerIdBound, int upperIdBoundIncl) {
-        return IntStream.rangeClosed(lowerIdBound, upperIdBoundIncl).boxed()
+    public static List<Tuple2<Long, byte[]>> getCharacterImagesAsBytes(Long lowerIdBound, Long upperIdBoundIncl) {
+        return LongStream.rangeClosed(lowerIdBound, upperIdBoundIncl).boxed()
                 .map(TestDataFactory::getCharacterImage)
                 .collect(Collectors.toList());
     }
 
-    public static byte[] getCharacterImageAsBytes(int characterId) {
+    public static byte[] getCharacterImageAsBytes(Long characterId) {
         return getByteArrayFromFile(JPG_CHARACTER_IMAGE_FOLDER.getFilePath() + characterId + ".jpg");
     }
 
-    private static Tuple2<Integer, byte[]> getCharacterImage(int characterId) {
+    private static Tuple2<Long, byte[]> getCharacterImage(Long characterId) {
         return Tuple.of(characterId, getCharacterImageAsBytes(characterId));
     }
 
