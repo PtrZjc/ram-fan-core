@@ -28,7 +28,7 @@ class CharacterFetcher {
     private final DSLContext jooq;
     private final RestTemplate restTemplate;
 
-    private final String LINK = "https://rickandmortyapi.com/api/character";
+    private final String RESOURCE = "/character/";
     private final int PAGE_SIZE = 20;
 
     void fetchDataAndSaveInDb() {
@@ -39,7 +39,8 @@ class CharacterFetcher {
                 .map(record -> (Long) record.get(0))
                 .collect(toSet());
 
-        Long objectCount = JsonPath.parse(restTemplate.getForObject(LINK, String.class)).read("$.info.count");
+        Long objectCount = Long.valueOf(
+                JsonPath.parse(restTemplate.getForObject(RESOURCE, String.class)).read("$.info.count").toString());
 
         Map<Long, List<Long>> missingRecordsByPageNumber = LongStream.rangeClosed(1, objectCount).boxed()
                 .filter(id -> !existingIds.contains(id))
@@ -49,7 +50,7 @@ class CharacterFetcher {
     }
 
     private void fetchAndSaveInDb(Long pageNumber, List<Long> recordIndex) {
-        String response = restTemplate.getForObject(LINK + "/?page=" +
+        String response = restTemplate.getForObject(RESOURCE + "/?page=" +
                 pageNumber.toString(), String.class);
 
         List<CharacterDto> characters = new ArrayList<>();
@@ -70,7 +71,7 @@ class CharacterFetcher {
 
     private CharacterDto getCharacterDto(Long i, String response) {
         return CharacterDto.builder()
-                .id((Long) getResultObjectValue(response, i, "id"))
+                .id(Long.valueOf(getResultObjectValue(response, i, "id").toString()))
                 .name((String) getResultObjectValue(response, i, "name"))
                 .status((String) getResultObjectValue(response, i, "status"))
                 .species((String) getResultObjectValue(response, i, "species"))
