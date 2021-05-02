@@ -3,6 +3,7 @@ package pl.zajacp.ramfancore.infrastructure.db;
 import liquibase.integration.spring.SpringLiquibase;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.jooq.DSLContext;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -19,7 +20,8 @@ import java.util.Collections;
 public class ChangeLogConfiguration {
 
     @Bean
-    public SpringLiquibase getSpringLiquibase(DataSource dataSource, LiquibaseProperties liquibaseProperties) {
+    public SpringLiquibase getSpringLiquibase(DataSource dataSource, LiquibaseProperties liquibaseProperties, DSLContext ctx) {
+        ctx.createSchemaIfNotExists(liquibaseProperties.defaultLiquibaseSchema).execute();
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setChangeLog(liquibaseProperties.changeLog);
         liquibase.setDataSource(dataSource);
