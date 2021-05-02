@@ -8,14 +8,14 @@ import org.jooq.Record1;
 import org.jooq.SelectJoinStep;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.zajacp.ramfancore.data.fetcher.model.CharacterDto;
+import pl.zajacp.ramfancore.data.model.CharacterDto;
 
 import static java.util.stream.Collectors.toList;
 import static pl.zajacp.ramfancore.model.tables.Character.CHARACTER;
 
 @Service
 @Slf4j
-class CharacterFetcher extends AbstractDataFetcher<CharacterDto> {
+class CharacterFetcher extends DataFetcher<CharacterDto> {
 
     private static final String RESOURCE = "character";
 

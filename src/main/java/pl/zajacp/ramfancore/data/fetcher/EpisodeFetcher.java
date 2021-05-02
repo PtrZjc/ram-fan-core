@@ -8,14 +8,14 @@ import org.jooq.Record1;
 import org.jooq.SelectJoinStep;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.zajacp.ramfancore.data.fetcher.model.EpisodeDto;
+import pl.zajacp.ramfancore.data.model.EpisodeDto;
 
 import static java.util.stream.Collectors.toList;
 import static pl.zajacp.ramfancore.model.tables.Episode.EPISODE;
 
 @Service
 @Slf4j
-class EpisodeFetcher extends AbstractDataFetcher<EpisodeDto> {
+class EpisodeFetcher extends DataFetcher<EpisodeDto> {
 
     private static final String RESOURCE = "episode";
 
@@ -27,6 +27,7 @@ class EpisodeFetcher extends AbstractDataFetcher<EpisodeDto> {
         return jooq.select(EPISODE.ID).from(EPISODE);
     }
 
+    @SuppressWarnings("unchecked")
     protected EpisodeDto prepareRamDto(Long i, String response) {
         return EpisodeDto.builder()
                 .id(Long.valueOf(getParamObjectFromResultJson(response, i, "id").toString()))

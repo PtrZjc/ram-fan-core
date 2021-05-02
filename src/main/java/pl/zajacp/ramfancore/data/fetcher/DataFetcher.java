@@ -13,7 +13,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record1;
 import org.jooq.SelectJoinStep;
 import org.springframework.web.client.RestTemplate;
-import pl.zajacp.ramfancore.data.fetcher.model.RamDto;
+import pl.zajacp.ramfancore.data.model.RamDto;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.toSet;
 
 @Slf4j
 @AllArgsConstructor
-abstract class AbstractDataFetcher<Dto extends RamDto> {
+public abstract class DataFetcher<Dto extends RamDto> {
 
     protected final DSLContext jooq;
     protected final RestTemplate restTemplate;
@@ -36,7 +36,7 @@ abstract class AbstractDataFetcher<Dto extends RamDto> {
 
     protected abstract void insertDtoIntoRamTable(List<Dto> characters);
 
-    void fetchDataAndSaveInDb() {
+    public void fetchDataAndSaveInDb() {
         log.info("Fetching {} data", resource);
 
         Set<Long> existingIds = getExistingResourceUniqueIDs();
