@@ -1,4 +1,4 @@
-package pl.zajacp.ramfancore.data.fetcher.model;
+package pl.zajacp.ramfancore.data.model;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
