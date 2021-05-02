@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.toSet;
 
 @Slf4j
 @AllArgsConstructor
-public abstract class AbstractDataFetcher<Dto extends RamDto> {
+abstract class AbstractDataFetcher<Dto extends RamDto> {
 
     protected final DSLContext jooq;
     protected final RestTemplate restTemplate;
@@ -37,14 +37,21 @@ public abstract class AbstractDataFetcher<Dto extends RamDto> {
     protected abstract void insertDtoIntoRamTable(List<Dto> characters);
 
     void fetchDataAndSaveInDb() {
-        Set<Long> existingIds = getResourceUniqueIDs();
+        log.info("Fetching {} data", resource);
+
+        Set<Long> existingIds = getExistingResourceUniqueIDs();
+        log.info("Already existing {} records in the database: {}", resource, existingIds.size());
+
         Long objectCount = getTotalResourceObjectCount();
+        log.info("Total {} records present in the RAM service is {}. Record number needed to fetch: {} ",
+                resource, objectCount, objectCount - existingIds.size());
+
         Map<Long, List<Long>> missingRecordsByPageNumber = getMissingRecordsByPageNumber(existingIds, objectCount);
 
         missingRecordsByPageNumber.forEach(this::fetchPageAndSaveInDb);
     }
 
-    protected Set<Long> getResourceUniqueIDs() {
+    protected Set<Long> getExistingResourceUniqueIDs() {
         return selectIdColumnFromRamDataTable()
                 .fetch().stream()
                 .map(record -> (Long) record.get(0))
@@ -63,6 +70,7 @@ public abstract class AbstractDataFetcher<Dto extends RamDto> {
     }
 
     private void fetchPageAndSaveInDb(Long pageNumber, List<Long> recordIndex) {
+        log.info("Fetching {} page number {}", resource, pageNumber);
         String responsePage = restTemplate.getForObject("/" + resource + "/?page=" +
                 pageNumber.toString(), String.class);
 
