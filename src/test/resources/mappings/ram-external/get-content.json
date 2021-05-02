@@ -1,31 +1,31 @@
 {
   "mappings": [
     {
-      "name": "Get 1st character page",
+      "name": "Get 1st result page",
       "request": {
         "method": "GET",
-        "urlPattern": "/api/character(/|/\\?page=1)?"
+        "urlPattern": "/api/(character|episode|location)(/|/\\?page=1)?"
       },
       "response": {
         "status": 200,
         "headers": {
           "Content-Type": "application/json"
         },
-        "bodyFileName": "ram-external/character-page1.json"
+        "bodyFileName": "ram-external/{{request.path.[1]}}-page1.json"
       }
     },
     {
-      "name": "Get 2st character page",
+      "name": "Get 2nd result page",
       "request": {
         "method": "GET",
-        "url": "/api/character/?page=2"
+        "urlPattern": "/api/(character|episode|location)/\\?page=2"
       },
       "response": {
         "status": 200,
         "headers": {
           "Content-Type": "application/json"
         },
-        "bodyFileName": "ram-external/character-page2.json"
+        "bodyFileName": "ram-external/{{request.path.[1]}}-page2.json"
       }
     }
   ]

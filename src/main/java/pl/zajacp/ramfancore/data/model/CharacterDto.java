@@ -1,4 +1,4 @@
-package pl.zajacp.ramfancore.data.fetcher.model;
+package pl.zajacp.ramfancore.data.model;
 
 import lombok.*;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CharacterDto {
+public class CharacterDto implements RamDto {
     private Long id;
     private String name;
     private String status;
