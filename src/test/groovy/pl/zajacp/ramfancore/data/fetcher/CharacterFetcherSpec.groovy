@@ -10,7 +10,8 @@ import org.springframework.web.client.RestTemplate
 import org.testcontainers.spock.Testcontainers
 import pl.zajacp.ramfancore.infrastructure.api.ApiConfig
 import pl.zajacp.ramfancore.infrastructure.db.ChangeLogConfiguration
-import pl.zajacp.ramfancore.test.commons.TestDataRepository
+import pl.zajacp.ramfancore.test.commons.CharacterTestRepository
+import pl.zajacp.ramfancore.test.commons.AbstractTestDataRepository
 import pl.zajacp.ramfancore.test.infrastructure.JooqTestConfig
 import pl.zajacp.ramfancore.test.infrastructure.TestContainer
 import pl.zajacp.ramfancore.test.infrastructure.WiremockConfig
@@ -43,14 +44,14 @@ class CharacterFetcherSpec extends Specification {
     @Autowired
     RestTemplate restTemplate;
 
-    TestDataRepository testRepository
+    AbstractTestDataRepository testRepository
 
     CharacterFetcher characterFetcher
 
     def JPG_HEADER_IDENTIFIER = "JFIF"
 
     def setup() {
-        testRepository = new TestDataRepository(jooq)
+        testRepository = new CharacterTestRepository(jooq)
         characterFetcher = new CharacterFetcher(jooq, restTemplate)
         testRepository.clearDatabase()
     }
@@ -89,7 +90,7 @@ class CharacterFetcherSpec extends Specification {
 
     def "Character fetch when database is already filled"() {
         given: "All characters are initially present in database"
-        testRepository.insertCharacters(1L, 30L)
+        testRepository.insertData(1L, 30L)
         def initialRecords = jooq.select().from(CHARACTER).fetch().collect()
 
         when: "A character fetch is performed"
@@ -101,7 +102,7 @@ class CharacterFetcherSpec extends Specification {
 
     def "Character fetch when some characters are already present"() {
         expect: "A partially filled database"
-        testRepository.insertCharacters(10L, 25L)
+        testRepository.insertData(10L, 25L)
         def initialRecords = jooq.selectFrom(CHARACTER).orderBy(CHARACTER.ID.asc()).fetch().collect()
 
         when: "A character fetch is performed"
