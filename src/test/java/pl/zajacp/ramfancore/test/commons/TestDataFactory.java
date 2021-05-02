@@ -29,6 +29,7 @@ public class TestDataFactory {
         API_LOCATION_PAGE_1("target/test-classes/__files/ram-external/location-page1.json"),
         API_LOCATION_PAGE_2("target/test-classes/__files/ram-external/location-page2.json"),
         SQL_INSERT_30_CHARACTERS("target/test-classes/sql/insert-30-characters.sql"),
+        SQL_INSERT_30_EPISODES("target/test-classes/sql/insert-30-episodes.sql"),
         JPG_CHARACTER_IMAGE_FOLDER("target/test-classes/__files/ram-external/image/character/");
 
         private String filePath;
